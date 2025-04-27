@@ -9,8 +9,8 @@ class APIClient:
         response = requests.get(f"{self.base_url}/{endpoint}", params=params, timeout=self.timeout)
         return response
 
-    def post(self, endpoint, json=None):
-        response = requests.post(f"{self.base_url}/{endpoint}", json=json, timeout=self.timeout)
+    def post(self, endpoint, json=None, headers=None):
+        response = requests.post(f"{self.base_url}/{endpoint}", json=json, headers=headers, timeout=self.timeout)
         return response
 
     def put(self, endpoint, json=None):

@@ -13,6 +13,9 @@ class SettingsDoska:
     #Авторизация
     ENDPOINT_SIGNIN = "/signin"
 
+    # Создание объявления
+    ENDPOINT_CREATE_LISTING = "/create-listing"
+
 
 
 

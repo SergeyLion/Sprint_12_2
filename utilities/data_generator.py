@@ -58,3 +58,17 @@ class DataGenerator:
         with allure.step("Генерирует сумму"):
             return random.randint(1000, 99999)
 
+
+    @staticmethod
+    def create_listing_data():
+        fake = Faker("ru_RU")  # Инициализация Faker для русского языка
+        data = {
+            'name': fake.word(),  # Случайное слово
+            'category': fake.random_element(elements=('Авто', 'Книги', 'Садоводство', 'Хобби', 'Технологии')),  # Случайная категория
+            'condition': fake.random_element(elements=('Новый', 'Б/у')),  # Случайное состояние
+            'city': fake.random_element(elements=('Москва', 'Санкт-Петербург', 'Новосибирск', 'Екатеринбург', 'Нижний Новгород', 'Казань')),  # Случайный город
+            'description': fake.sentence(nb_words=10),  # Случайное предложение из 10 слов
+            'price': fake.pyint(min_value=100, max_value=1000000)  # Случайное целое число в диапазоне
+        }
+        return data
+
