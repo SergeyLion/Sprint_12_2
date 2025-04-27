@@ -10,6 +10,9 @@ class SettingsDoska:
     #Регистрация
     ENDPOINT_SIGNUP = "/signup"
 
+    #Авторизация
+    ENDPOINT_SIGNIN = "/signin"
+
 
 
 
