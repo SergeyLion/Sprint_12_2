@@ -55,10 +55,70 @@ def auth_token(api_client, create_user):
 
 
 @pytest.fixture
+def another_auth_token(api_client):
+    # Регистрация и логин другого пользователя
+    another_user = {
+        "email": "another_user@example.com",
+        "password": "another_password123",
+        "submitPassword": "another_password123"
+
+    }
+
+    # Регистрация
+    api_client.post(
+        endpoint=Sd.ENDPOINT_SIGNUP,
+        json=another_user
+    )
+
+    # Логин
+    response = api_client.post(
+        endpoint=Sd.ENDPOINT_SIGNIN,
+        json=another_user
+    )
+
+    return response.json()["token"]["access_token"]
+
+
+@pytest.fixture
 def kandinsky_api():
     return KandinskyAPI()
 
+
 @pytest.fixture
-def create_listing_data():
-    name
-    data = {}
+def create_test_listing(api_client, auth_token, kandinsky_api):
+    """Фикстура создания тестового объявления"""
+    # Генерация тестовых данных
+    data = Dg.create_listing_data()
+
+    # Генерация изображения
+    prompt = data.get('description')
+    image_data = kandinsky_api.generate_image(prompt)
+
+    # Подготовка файлов
+    test_files = [
+        ('images', (f'image_{Dg.generator_uid()}.jpg', image_data, 'image/jpeg'))
+    ]
+
+    # Заголовки запроса
+    headers = {
+        "Authorization": f"Bearer {auth_token}",
+        "Accept": "application/json"
+    }
+
+    # Отправка запроса
+    response = api_client.post(
+        endpoint=Sd.ENDPOINT_CREATE_LISTING,
+        headers=headers,
+        data=data,
+        files=test_files
+    )
+
+    # Проверка статус-кода
+    assert response.status_code == 201, (
+        f"Ожидался статус код 201, но получен {response.status_code}. "
+        f"Ответ сервера: {response.text}"
+    )
+
+    # Получение и проверка ответа
+    response_data = response.json()
+    return response_data

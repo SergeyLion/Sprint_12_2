@@ -16,6 +16,9 @@ class SettingsDoska:
     # Создание объявления
     ENDPOINT_CREATE_LISTING = "/create-listing"
 
+    # Обновление объявления
+    ENDPOINT_UPDATE_LISTING = "/update-offer"
+
 
 
 

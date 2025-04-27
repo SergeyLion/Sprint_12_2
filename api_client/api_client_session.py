@@ -18,6 +18,12 @@ class ApiClient:
         )
         return response
 
+    def patch(self, endpoint, data=None, headers=None, json=None, files=None):
+        response = self.session.patch(
+            f"{self.base_url}/{endpoint}", data=data, json=json, headers=headers, files=files, timeout=self.timeout
+        )
+        return response
+
 
     def put(self, endpoint, data=None, headers=None, json=None):
         response = self.session.put(
