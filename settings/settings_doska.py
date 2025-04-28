@@ -19,6 +19,9 @@ class SettingsDoska:
     # Обновление объявления
     ENDPOINT_UPDATE_LISTING = "/update-offer"
 
+    # Объявления (Используется для удаления)
+    ENDPOINT_LISTINGS = "/listings"
+
 
 
 
