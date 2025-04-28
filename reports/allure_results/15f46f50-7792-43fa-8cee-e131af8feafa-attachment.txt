@@ -1,0 +1,4 @@
+Request: POST https://qa-desk.stand.praktikum-services.ru/api/signin
+Request Body: {'email': 'ostromir_12@example.org', 'password': 'J%5x(@AF4f'}
+Response Status: 201
+Response Body: {"user":{"id":217,"name":"User","email":"ostromir_12@example.org","avatar":null,"admin":false},"token":{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjE3LCJlbWFpbCI6Im9zdHJvbWlyXzEyQGV4YW1wbGUub3JnIiwibmFtZSI6IlVzZXIiLCJpYXQiOjE3NDU4NjAwMjQsImV4cCI6MTc0NTk0NjQyNH0.XViUsEW7wFZgk3aSwZzci2dFx1zDfi_pShZgEc-8BXI"}}

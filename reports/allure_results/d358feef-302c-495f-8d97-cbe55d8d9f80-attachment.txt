@@ -1,0 +1,5 @@
+Request: POST https://qa-desk.stand.praktikum-services.ru/api/create-listing
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEwLCJlbWFpbCI6Imt1em1pbmxhZGlzbGF2QGV4YW1wbGUubmV0IiwibmFtZSI6IlVzZXIiLCJpYXQiOjE3NDU4NjAwMTksImV4cCI6MTc0NTk0NjQxOX0.ZdC1afjtU3W3pMtAttv2veQvfaDAMlbnOyi72HdHpjQ', 'Accept': 'application/json'}
+Data: {'name': 'Объявление 6226d1ba-baba-44b7-a68b-4b2841d4f30b', 'category': 'Авто', 'condition': 'Новый', 'city': 'Москва', 'description': 'Ребятишки затянуться приходить еврейский поговорить растеряться развернуться военный жестокий монета.', 'price': 476435}
+Response Status: 201
+Response Body: {"id":178,"name":"Объявление 6226d1ba-baba-44b7-a68b-4b2841d4f30b","category":"Авто","condition":"Новый","city":"Москва","description":"Ребятишки затянуться приходить еврейский поговорить растеряться развернуться военный жестокий монета.","price":476435,"img1":"https://qa-foodgram.s3.yandex.net/image_4964cfd5-6d08-49a8-a239-eb96eba57896.jpg","owner":210,"updatedAt":"2025-04-28T17:06:59.466Z","createdAt":"2025-04-28T17:06:59.466Z","img2":null,"img3":null,"isFavorite":null}

@@ -1,0 +1,5 @@
+Request: POST https://qa-desk.stand.praktikum-services.ru/api/create-listing
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjE3LCJlbWFpbCI6Im9zdHJvbWlyXzEyQGV4YW1wbGUub3JnIiwibmFtZSI6IlVzZXIiLCJpYXQiOjE3NDU4NjAwMjQsImV4cCI6MTc0NTk0NjQyNH0.XViUsEW7wFZgk3aSwZzci2dFx1zDfi_pShZgEc-8BXI', 'Accept': 'application/json'}
+Data: {'name': 'Объявление 93ee6668-8e34-446b-ad20-24b0168ece18', 'category': 'Авто', 'condition': 'Новый', 'city': 'Москва', 'description': 'Запустить пасть выраженный каюта плод зато встать подробность нажать подробность торопливый интеллектуальный.', 'price': 393623}
+Response Status: 201
+Response Body: {"id":183,"name":"Объявление 93ee6668-8e34-446b-ad20-24b0168ece18","category":"Авто","condition":"Новый","city":"Москва","description":"Запустить пасть выраженный каюта плод зато встать подробность нажать подробность торопливый интеллектуальный.","price":393623,"img1":"https://qa-foodgram.s3.yandex.net/image_d27d4419-822c-4c67-8eea-66dabcbfb700.jpg","owner":217,"updatedAt":"2025-04-28T17:07:04.791Z","createdAt":"2025-04-28T17:07:04.791Z","img2":null,"img3":null,"isFavorite":null}

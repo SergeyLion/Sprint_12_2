@@ -1,0 +1,5 @@
+Request: PATCH https://qa-desk.stand.praktikum-services.ru/api/update-offer/179
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEzLCJlbWFpbCI6Imxlb25pZDIwMjFAZXhhbXBsZS5vcmciLCJuYW1lIjoiVXNlciIsImlhdCI6MTc0NTg2MDAxOSwiZXhwIjoxNzQ1OTQ2NDE5fQ.b5MSkyGRJnzsIWNfrpq20AnRGWDYPZSRMrXZYO8dZGQ', 'Accept': 'application/json'}
+Data: {'name': 'Объявление 05c7d007-2d81-43da-a755-246ff965d4a6', 'category': 'Авто', 'condition': 'Новый', 'city': 'Москва', 'description': 'Наслаждение князь торговля новый смелый настать.', 'price': 107462}
+Response Status: 200
+Response Body: {"id":179,"price":107462,"name":"Объявление 05c7d007-2d81-43da-a755-246ff965d4a6","category":"Авто","condition":"Новый","city":"Москва","description":"Наслаждение князь торговля новый смелый настать.","img1":"https://qa-foodgram.s3.yandex.net/image_481783d0-8ef4-48c4-8336-d0859f330640.jpg","img2":null,"img3":null,"isFavorite":null,"owner":213,"createdAt":"2025-04-28T17:07:00.094Z","updatedAt":"2025-04-28T17:07:00.213Z"}

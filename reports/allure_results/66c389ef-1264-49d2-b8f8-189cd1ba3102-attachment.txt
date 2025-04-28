@@ -1,0 +1,5 @@
+Request: PATCH https://qa-desk.stand.praktikum-services.ru/api/update-offer/182
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjE2LCJlbWFpbCI6ImFuaXNpbW92aWdvckBleGFtcGxlLm9yZyIsIm5hbWUiOiJVc2VyIiwiaWF0IjoxNzQ1ODYwMDIzLCJleHAiOjE3NDU5NDY0MjN9.9NS95IwFcQhWUBSBDWx-i5PxjqZvIvQbpCXtTqHVp9Y', 'Accept': 'application/json'}
+Data: {'condition': 'Б/у'}
+Response Status: 200
+Response Body: {"id":182,"price":115868,"name":"Объявление f40ec101-3951-4d43-970a-6f68c40d8bb3","category":"Авто","condition":"Б/у","city":"Москва","description":"Команда правление привлекать кузнец присесть мимо.","img1":"https://qa-foodgram.s3.yandex.net/image_0393ceaf-af7f-490e-be57-d1619ce53653.jpg","img2":null,"img3":null,"isFavorite":null,"owner":216,"createdAt":"2025-04-28T17:07:03.466Z","updatedAt":"2025-04-28T17:07:04.502Z"}

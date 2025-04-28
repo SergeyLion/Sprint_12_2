@@ -1,0 +1,6 @@
+Другой пользователь:
+Email: another_user@example.com
+Password: another_password123
+
+Response Status (регистрация): 400
+Response Status (логин): 201

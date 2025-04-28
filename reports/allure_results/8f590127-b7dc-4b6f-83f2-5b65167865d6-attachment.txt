@@ -1,0 +1,5 @@
+Request: POST https://qa-desk.stand.praktikum-services.ru/api/create-listing
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjE5LCJlbWFpbCI6ImFrc2Vub3Zyb3N0aXNsYXZAZXhhbXBsZS5uZXQiLCJuYW1lIjoiVXNlciIsImlhdCI6MTc0NTg2MDAyNywiZXhwIjoxNzQ1OTQ2NDI3fQ.G9KxvCSRValw8sQTdwWXZLSHH4oGBsatAjiwUiuBOEA', 'Accept': 'application/json'}
+Data: {'name': 'Объявление 99c496b6-3010-47e4-8b70-45c509832372', 'category': 'Авто', 'condition': 'Новый', 'city': 'Москва', 'description': 'Трясти вздрагивать иной актриса вариант увеличиваться адвокат.', 'price': 667436}
+Response Status: 201
+Response Body: {"id":185,"name":"Объявление 99c496b6-3010-47e4-8b70-45c509832372","category":"Авто","condition":"Новый","city":"Москва","description":"Трясти вздрагивать иной актриса вариант увеличиваться адвокат.","price":667436,"img1":"https://qa-foodgram.s3.yandex.net/image_bbe2aee6-c1fb-4824-998b-6f38e923f85c.jpg","owner":219,"updatedAt":"2025-04-28T17:07:07.715Z","createdAt":"2025-04-28T17:07:07.715Z","img2":null,"img3":null,"isFavorite":null}

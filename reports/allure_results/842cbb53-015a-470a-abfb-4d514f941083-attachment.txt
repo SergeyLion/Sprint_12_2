@@ -1,0 +1,4 @@
+Request: POST https://qa-desk.stand.praktikum-services.ru/api/signup
+Request Body: {'email': 'vikenti2023@example.org', 'password': ')7YE1B#bCp', 'submitPassword': ')7YE1B#bCp'}
+Response Status: 400
+Response Body: {"statusCode":400,"message":"Почта уже используется"}

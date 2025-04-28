@@ -1,0 +1,5 @@
+Request: PATCH https://qa-desk.stand.praktikum-services.ru/api/update-offer/186
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIwLCJlbWFpbCI6ImFub3RoZXJfdXNlckBleGFtcGxlLmNvbSIsIm5hbWUiOiJVc2VyIiwiaWF0IjoxNzQ1ODYwMDI5LCJleHAiOjE3NDU5NDY0Mjl9.cBW2Vs86b-Ys7Jfp5P1UckOW36QoaG0cyliBkxLBDQY', 'Accept': 'application/json'}
+Data: {'id': 186, 'name': 'Попытка изменения другим пользователем', 'category': 'Авто', 'condition': 'Новый', 'city': 'Москва', 'description': 'Угроза рота да виднеться более провал оставить палата госпожа эффект рот госпожа издали.', 'price': 769094, 'img1': 'https://qa-foodgram.s3.yandex.net/image_9e46f113-c5ff-4212-9457-18c28a3c34fa.jpg', 'owner': 220, 'updatedAt': '2025-04-28T17:07:09.173Z', 'createdAt': '2025-04-28T17:07:09.173Z', 'img2': None, 'img3': None, 'isFavorite': None}
+Response Status: 401
+Response Body: {"message":"Оффер не найден или у вас нет прав на его редактирование","error":"Unauthorized","statusCode":401}
