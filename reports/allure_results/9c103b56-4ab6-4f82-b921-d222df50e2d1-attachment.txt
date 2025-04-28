@@ -1,0 +1,5 @@
+Request: PATCH https://qa-desk.stand.praktikum-services.ru/api/update-offer/184
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjE4LCJlbWFpbCI6ImVybW9sYW5hdW1vdkBleGFtcGxlLmNvbSIsIm5hbWUiOiJVc2VyIiwiaWF0IjoxNzQ1ODYwMDI2LCJleHAiOjE3NDU5NDY0MjZ9.xWJnqEXf4yrfbixIUD8tZ9EdXvnf4WWJTY8RGbSi7qQ', 'Accept': 'application/json'}
+Data: {'description': 'Валюта решетка монета сустав радость решетка боец беспомощный.'}
+Response Status: 200
+Response Body: {"id":184,"price":495921,"name":"Объявление 4619f718-17c6-47a8-bd88-2b5dabba5b85","category":"Авто","condition":"Новый","city":"Москва","description":"Валюта решетка монета сустав радость решетка боец беспомощный.","img1":"https://qa-foodgram.s3.yandex.net/image_f9dda8b8-f2cc-47ee-ada6-d8ec00b5280c.jpg","img2":null,"img3":null,"isFavorite":null,"owner":218,"createdAt":"2025-04-28T17:07:06.228Z","updatedAt":"2025-04-28T17:07:07.358Z"}

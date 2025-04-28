@@ -1,0 +1,5 @@
+Request: PATCH https://qa-desk.stand.praktikum-services.ru/api/update-offer/181
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjE1LCJlbWFpbCI6Im1pbGllcnNob3ZAZXhhbXBsZS5uZXQiLCJuYW1lIjoiVXNlciIsImlhdCI6MTc0NTg2MDAyMSwiZXhwIjoxNzQ1OTQ2NDIxfQ.habTE-V0FRf9XLE58HjQU6ObflKkgCbXeuQ6uOtSz6g', 'Accept': 'application/json'}
+Data: {'category': 'Технологии'}
+Response Status: 200
+Response Body: {"id":181,"price":529901,"name":"Объявление 6ca370d9-c932-402e-94a5-1c28d2b16d02","category":"Технологии","condition":"Новый","city":"Москва","description":"Неправда четко поймать пламя кпсс около сравнение провал.","img1":"https://qa-foodgram.s3.yandex.net/image_8693a822-81c7-414c-ad3d-8737edd93290.jpg","img2":null,"img3":null,"isFavorite":null,"owner":215,"createdAt":"2025-04-28T17:07:02.053Z","updatedAt":"2025-04-28T17:07:03.099Z"}

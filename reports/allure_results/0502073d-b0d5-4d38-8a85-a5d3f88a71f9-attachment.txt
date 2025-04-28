@@ -1,0 +1,5 @@
+Request: POST https://qa-desk.stand.praktikum-services.ru/api/create-listing
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIwLCJlbWFpbCI6ImFuaWtpdGFrYXpha292QGV4YW1wbGUuY29tIiwibmFtZSI6IlVzZXIiLCJpYXQiOjE3NDU4NjAwMjgsImV4cCI6MTc0NTk0NjQyOH0.S0VPnrzEmmB4w5USpRDPVsdub_RsIhuG36qUfpzhcAA', 'Accept': 'application/json'}
+Data: {'name': 'Объявление 398e0204-1d2c-498a-875e-090e15c97011', 'category': 'Авто', 'condition': 'Новый', 'city': 'Москва', 'description': 'Угроза рота да виднеться более провал оставить палата госпожа эффект рот госпожа издали.', 'price': 769094}
+Response Status: 201
+Response Body: {"id":186,"name":"Объявление 398e0204-1d2c-498a-875e-090e15c97011","category":"Авто","condition":"Новый","city":"Москва","description":"Угроза рота да виднеться более провал оставить палата госпожа эффект рот госпожа издали.","price":769094,"img1":"https://qa-foodgram.s3.yandex.net/image_9e46f113-c5ff-4212-9457-18c28a3c34fa.jpg","owner":220,"updatedAt":"2025-04-28T17:07:09.173Z","createdAt":"2025-04-28T17:07:09.173Z","img2":null,"img3":null,"isFavorite":null}

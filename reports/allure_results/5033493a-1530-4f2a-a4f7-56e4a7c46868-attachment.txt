@@ -1,0 +1,4 @@
+Request: DELETE https://qa-desk.stand.praktikum-services.ru/api/listings/184
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjE4LCJlbWFpbCI6ImVybW9sYW5hdW1vdkBleGFtcGxlLmNvbSIsIm5hbWUiOiJVc2VyIiwiaWF0IjoxNzQ1ODYwMDI2LCJleHAiOjE3NDU5NDY0MjZ9.xWJnqEXf4yrfbixIUD8tZ9EdXvnf4WWJTY8RGbSi7qQ', 'Accept': 'application/json'}
+Response Status: 200
+Response Body: {"message":"Объявление удалено успешно"}

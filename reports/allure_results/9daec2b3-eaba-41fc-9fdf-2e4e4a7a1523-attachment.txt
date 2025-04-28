@@ -1,0 +1,5 @@
+Request: POST https://qa-desk.stand.praktikum-services.ru/api/create-listing
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjE0LCJlbWFpbCI6Iml6amFzbGF2XzE5ODBAZXhhbXBsZS5vcmciLCJuYW1lIjoiVXNlciIsImlhdCI6MTc0NTg2MDAyMCwiZXhwIjoxNzQ1OTQ2NDIwfQ.ZGoAJTWGo34xhTse7YvBkrBpF51ZAoWLNyMhEh2lu4k', 'Accept': 'application/json'}
+Data: {'name': 'Объявление 564be32a-bee3-4df1-acab-59f60a175a28', 'category': 'Авто', 'condition': 'Новый', 'city': 'Москва', 'description': 'Наступать точно медицина слишком багровый падаль пропасть господь.', 'price': 186903}
+Response Status: 201
+Response Body: {"id":180,"name":"Объявление 564be32a-bee3-4df1-acab-59f60a175a28","category":"Авто","condition":"Новый","city":"Москва","description":"Наступать точно медицина слишком багровый падаль пропасть господь.","price":186903,"img1":"https://qa-foodgram.s3.yandex.net/image_b8c197f4-8efe-4414-a48a-d19417160efa.jpg","owner":214,"updatedAt":"2025-04-28T17:07:00.582Z","createdAt":"2025-04-28T17:07:00.582Z","img2":null,"img3":null,"isFavorite":null}

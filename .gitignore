@@ -7,7 +7,7 @@ __pycache__/
 # C extensions
 *.so
 #results
-allure_results/
+
 # Distribution / packaging
 .Python
 build/
@@ -52,7 +52,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
-reports
 
 # Translations
 *.mo

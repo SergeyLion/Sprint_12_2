@@ -3,6 +3,7 @@ import allure
 import pytest
 from settings.settings_doska import SettingsDoska as Sd
 from utilities.data_generator import DataGenerator as Dg
+from pathlib import Path
 from faker import Faker
 
 
@@ -12,7 +13,7 @@ class TestUpdateListing:
 
     @allure.story("Полное обновление объявления")
     @allure.title("Проверка успешного полного обновления объявления")
-    def test_full_update_listing_success(self, api_client, auth_token, create_test_listing, kandinsky_api,
+    def test_full_update_listing_success(self, api_client, auth_token, create_test_listing,
                                          delete_test_listing):
         with allure.step("1. Подготовка данных для обновления"):
             listing_id = create_test_listing["id"]
@@ -20,14 +21,18 @@ class TestUpdateListing:
             allure.attach(str(create_test_listing), name="Исходные данные объявления",
                           attachment_type=allure.attachment_type.JSON)
 
-            # Генерация нового изображения
-            image_data = kandinsky_api.generate_image("Новое изображение для обновления")
-            allure.attach(image_data, name="Новое изображение", attachment_type=allure.attachment_type.JPG)
+            with allure.step("Подготовка файлов для отправки"):
+                # Путь к изображению в проекте
+                image_path = Path(__file__).parent.parent / "settings" / "test_image_2.jpg"
 
-            # Подготовка файлов
-            test_files = [
-                ('images', (f'image_{Dg.generator_uid()}.jpg', image_data, 'image/jpeg'))
-            ]
+                # Чтение изображения
+                with open(image_path, 'rb') as image_file:
+                    image_data = image_file.read()
+
+                test_files = [
+                    ('images', (f'image_{Dg.generator_uid()}.jpg', image_data, 'image/jpeg'))
+                ]
+
             updated_data = Dg.create_listing_data()
             allure.attach(str(updated_data), name="Данные для обновления", attachment_type=allure.attachment_type.JSON)
 

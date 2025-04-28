@@ -1,9 +1,10 @@
 import pytest
 import allure
+from pathlib import Path
 from api_client.api_client_session import ApiClient
 from settings.settings_doska import SettingsDoska as Sd
 from utilities.data_generator import DataGenerator as Dg
-from utilities.kandinsky_generate import KandinskyAPI
+
 
 
 @pytest.fixture
@@ -115,30 +116,26 @@ def another_auth_token(api_client):
         return login_response.json()["token"]["access_token"]
 
 
-@pytest.fixture
-def kandinsky_api():
-    with allure.step("Инициализация API Kandinsky"):
-        return KandinskyAPI()
-
 
 @pytest.fixture
-def create_test_listing(api_client, auth_token, kandinsky_api):
+def create_test_listing(api_client, auth_token):
     """Фикстура создания тестового объявления"""
     with allure.step("Создание тестового объявления"):
         # Генерация тестовых данных
         data = Dg.create_listing_data()
         allure.attach(str(data), name="Данные для создания объявления", attachment_type=allure.attachment_type.TEXT)
 
-        # Генерация изображения
-        prompt = data.get('description')
-        with allure.step(f"Генерация изображения по описанию: '{prompt}'"):
-            image_data = kandinsky_api.generate_image(prompt)
-            allure.attach(image_data, name="Сгенерированное изображение", attachment_type=allure.attachment_type.JPG)
+        with allure.step("Подготовка файлов для отправки"):
+            # Путь к изображению в проекте
+            image_path = Path(__file__).parent.parent / "settings" / "test_image.jpg"
 
-        # Подготовка файлов
-        test_files = [
-            ('images', (f'image_{Dg.generator_uid()}.jpg', image_data, 'image/jpeg'))
-        ]
+            # Чтение изображения
+            with open(image_path, 'rb') as image_file:
+                image_data = image_file.read()
+
+            test_files = [
+                ('images', (f'image_{Dg.generator_uid()}.jpg', image_data, 'image/jpeg'))
+            ]
 
         # Заголовки запроса
         headers = {

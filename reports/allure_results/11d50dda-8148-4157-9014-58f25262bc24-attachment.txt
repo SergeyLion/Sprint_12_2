@@ -1,0 +1,5 @@
+Request: POST https://qa-desk.stand.praktikum-services.ru/api/create-listing
+Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjA5LCJlbWFpbCI6Iml6bWFpbDk2QGV4YW1wbGUuY29tIiwibmFtZSI6IlVzZXIiLCJpYXQiOjE3NDU4NjAwMTgsImV4cCI6MTc0NTk0NjQxOH0.dfWH3i-c01wB5g8sgBA-Q7Oi5fbwKOsNsx1P8y2mPjE', 'Accept': 'application/json'}
+Data: {'name': 'Объявление c230eff3-6de0-4e3f-a75e-e096f8367413', 'category': 'Авто', 'condition': 'Новый', 'city': 'Москва', 'description': 'Факультет танцевать добиться изредка выразить естественный невозможно конференция ночь отъезд перебивать.', 'price': 762596}
+Response Status: 201
+Response Body: {"id":177,"name":"Объявление c230eff3-6de0-4e3f-a75e-e096f8367413","category":"Авто","condition":"Новый","city":"Москва","description":"Факультет танцевать добиться изредка выразить естественный невозможно конференция ночь отъезд перебивать.","price":762596,"img1":"https://qa-foodgram.s3.yandex.net/image_7f9a4fe4-e0b3-48a3-b1f9-e4dcdb07428b.jpg","owner":209,"updatedAt":"2025-04-28T17:06:59.104Z","createdAt":"2025-04-28T17:06:59.104Z","img2":null,"img3":null,"isFavorite":null}

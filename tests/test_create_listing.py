@@ -3,29 +3,31 @@ from datetime import datetime
 from settings.settings_doska import SettingsDoska as Sd
 from utilities.data_generator import DataGenerator as Dg
 import allure
+from pathlib import Path
 
 
 @allure.feature("Создание объявлений")
 @allure.story("Успешное создание объявления")
 class TestCreateListing:
     @allure.title("Проверка успешного создания объявления")
-    def test_create_listing_success(self, api_client, auth_token, kandinsky_api, delete_test_listing):
+    def test_create_listing_success(self, api_client, auth_token, delete_test_listing):
         with allure.step("1. Подготовка тестовых данных"):
             data = Dg.create_listing_data()
             allure.attach(str(data), name="Данные для создания объявления", attachment_type=allure.attachment_type.TEXT)
 
-        with allure.step("2. Генерация изображения для объявления"):
-            prompt = data.get('description')
-            allure.attach(prompt, name="Промпт для генерации изображения", attachment_type=allure.attachment_type.TEXT)
-            image_data = kandinsky_api.generate_image(prompt)
-            allure.attach(image_data, name="Сгенерированное изображение", attachment_type=allure.attachment_type.JPG)
+        with allure.step("2. Подготовка файлов для отправки"):
+            # Путь к изображению в проекте
+            image_path = Path(__file__).parent.parent / "settings" / "test_image.jpg"
 
-        with allure.step("3. Подготовка файлов для отправки"):
+            # Чтение изображения
+            with open(image_path, 'rb') as image_file:
+                image_data = image_file.read()
+
             test_files = [
                 ('images', (f'image_{Dg.generator_uid()}.jpg', image_data, 'image/jpeg'))
             ]
 
-        with allure.step("4. Отправка запроса на создание объявления"):
+        with allure.step("3. Отправка запроса на создание объявления"):
             headers = {
                 "Authorization": f"Bearer {auth_token}",
                 "Accept": "application/json"
@@ -48,18 +50,18 @@ class TestCreateListing:
                 attachment_type=allure.attachment_type.TEXT
             )
 
-        with allure.step("5. Проверка статус-кода ответа"):
+        with allure.step("4. Проверка статус-кода ответа"):
             assert response.status_code == 201, (
                 f"Ожидался статус код 201, но получен {response.status_code}. "
                 f"Ответ сервера: {response.text}"
             )
 
-        with allure.step("6. Обработка и проверка ответа"):
+        with allure.step("5. Обработка и проверка ответа"):
             response_data = response.json()
             delete_test_listing['id'] = response_data['id']
             allure.attach(str(response_data), name="Полный ответ сервера", attachment_type=allure.attachment_type.JSON)
 
-            with allure.step("6.1 Проверка наличия обязательных полей"):
+            with allure.step("5.1 Проверка наличия обязательных полей"):
                 required_fields = [
                     'id', 'name', 'category', 'condition', 'city',
                     'description', 'price', 'img1', 'owner',
@@ -70,7 +72,7 @@ class TestCreateListing:
                 allure.attach("Все обязательные поля присутствуют", name="Результат проверки",
                               attachment_type=allure.attachment_type.TEXT)
 
-            with allure.step("6.2 Проверка типов данных"):
+            with allure.step("5.2 Проверка типов данных"):
                 type_checks = [
                     ('id', int),
                     ('name', str),
@@ -92,7 +94,7 @@ class TestCreateListing:
                 allure.attach("Все типы данных корректны", name="Результат проверки",
                               attachment_type=allure.attachment_type.TEXT)
 
-            with allure.step("6.3 Проверка формата дат"):
+            with allure.step("5.3 Проверка формата дат"):
                 try:
                     datetime.fromisoformat(response_data['createdAt'].replace('Z', ''))
                     datetime.fromisoformat(response_data['updatedAt'].replace('Z', ''))
@@ -102,7 +104,7 @@ class TestCreateListing:
                     allure.attach(str(e), name="Ошибка формата даты", attachment_type=allure.attachment_type.TEXT)
                     pytest.fail("Некорректный формат даты")
 
-            with allure.step("6.4 Проверка соответствия отправленных и полученных данных"):
+            with allure.step("5.4 Проверка соответствия отправленных и полученных данных"):
                 data_comparison = [
                     ('name', 'Название'),
                     ('category', 'Категория'),
@@ -125,17 +127,17 @@ class TestCreateListing:
                 allure.attach("Все данные соответствуют отправленным", name="Результат проверки",
                               attachment_type=allure.attachment_type.TEXT)
 
-            with allure.step("6.5 Проверка изображений"):
+            with allure.step("5.5 Проверка изображений"):
                 assert response_data['img1'].startswith('http'), "Ссылка на изображение должна быть URL"
                 allure.attach(response_data['img1'], name="Ссылка на изображение",
                               attachment_type=allure.attachment_type.TEXT)
 
-            with allure.step("6.6 Проверка дополнительных полей"):
+            with allure.step("5.6 Проверка дополнительных полей"):
                 assert 'isFavorite' in response_data, "Отсутствует поле isFavorite"
                 allure.attach(f"isFavorite: {response_data.get('isFavorite')}", name="Поле isFavorite",
                               attachment_type=allure.attachment_type.TEXT)
 
-            with allure.step("6.7 Проверка дат создания и обновления"):
+            with allure.step("5.7 Проверка дат создания и обновления"):
                 assert response_data['createdAt'] == response_data[
                     'updatedAt'], "Даты создания и обновления должны совпадать для нового объявления"
                 allure.attach(
