@@ -122,3 +122,23 @@ def create_test_listing(api_client, auth_token, kandinsky_api):
     # Получение и проверка ответа
     response_data = response.json()
     return response_data
+
+@pytest.fixture
+def delete_test_listing(api_client, auth_token):
+    data_delete_listing = {'id': None}
+    yield data_delete_listing
+    # Заголовки с токеном авторизации
+    headers = {
+        "Authorization": f"Bearer {auth_token}",
+        "Accept": "application/json"
+    }
+
+    delete_response = api_client.delete(
+        endpoint=f"{Sd.ENDPOINT_LISTINGS}/{data_delete_listing['id']}",
+        headers=headers
+    )
+    assert delete_response.status_code == 200, (
+        f"Ожидался статус код 200 (Ok), но получен {delete_response.status_code}. "
+        f"Ответ сервера: {delete_response.text}"
+    )
+

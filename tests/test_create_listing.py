@@ -5,7 +5,7 @@ from utilities.data_generator import DataGenerator as Dg
 
 
 class TestCreateListing:
-    def test_create_listing_success(self, api_client, auth_token, kandinsky_api):
+    def test_create_listing_success(self, api_client, auth_token, kandinsky_api, delete_test_listing):
         # Генерация тестовых данных
         data = Dg.create_listing_data()
 
@@ -40,6 +40,7 @@ class TestCreateListing:
 
         # Получение и проверка ответа
         response_data = response.json()
+        delete_test_listing['id'] = response_data['id']
 
         # Основные проверки структуры ответа
         required_fields = [

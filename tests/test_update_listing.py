@@ -10,8 +10,9 @@ from faker import Faker
 class TestUpdateListing:
     fake = Faker("ru_RU")
 
-    def test_full_update_listing_success(self, api_client, auth_token, create_test_listing, kandinsky_api):
+    def test_full_update_listing_success(self, api_client, auth_token, create_test_listing, kandinsky_api, delete_test_listing):
         listing_id = create_test_listing["id"]
+        delete_test_listing['id'] = create_test_listing["id"]
 
 
         # Генерация нового изображения
@@ -65,11 +66,12 @@ class TestUpdateListing:
         ("description", fake.sentence(nb_words=10)),
         ("price", fake.pyint(min_value=100, max_value=1000000)),
     ])
-    def test_update_single_field_listing_success(self, api_client, auth_token, create_test_listing, field, new_value):
+    def test_update_single_field_listing_success(self, api_client, auth_token, create_test_listing, delete_test_listing, field, new_value):
         """
         Тест обновления каждого поля по отдельности
         """
         listing_id = create_test_listing["id"]
+        delete_test_listing['id'] = create_test_listing["id"]
 
         # Создаем копию исходных данных
         update_data = create_test_listing.copy()
@@ -121,12 +123,13 @@ class TestUpdateListing:
             "Дата обновления должна измениться после редактирования")
 
     def test_update_listing_by_other_user_should_fail(self, api_client, auth_token, another_auth_token,
-                                                      create_test_listing):
+                                                      create_test_listing, delete_test_listing):
         """
         Тест попытки редактирования объявления другим пользователем
         """
         # Получаем ID созданного тестового объявления
         listing_id = create_test_listing["id"]
+        delete_test_listing['id'] = create_test_listing["id"]
 
         # Создаем копию исходных данных
         update_data = create_test_listing.copy()
